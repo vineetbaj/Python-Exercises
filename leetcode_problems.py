@@ -112,3 +112,25 @@ class Solution:
         
         A.sort()
         return A
+        
+#Robot Return to Origin
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        
+        steps = 0
+        
+        for step in moves:
+            if step == 'U':
+                steps+=1
+            elif step == 'D':
+                steps-=1
+            elif step == 'R':
+                steps+=10
+            else:
+                steps-=10
+        
+        if steps == 0:
+            return True
+        else:
+            return False
+
