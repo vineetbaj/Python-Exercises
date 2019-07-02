@@ -149,3 +149,13 @@ class Solution:
             if(flag):
                 num.append(i)
         return num
+        
+#Hamming Distance
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        v = bin(x ^ y)[2:]
+        step = 0
+        for i in str(v):
+            if i=='1':
+                step+=1
+        return step
