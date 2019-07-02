@@ -34,4 +34,46 @@ class Solution:
            
         return t
             
-            
+#To Lower Case
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        return str.lower()  
+
+#Unique Morse Code Words
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        morse_code = {'a':".-",
+                      'b':"-...",'c':"-.-.",'d':"-..",'e':".",'f':"..-.",'g':"--.",'h':"....",'i':"..",'j':".---",'k':"-.-",'l':".-..",'m':"--",'n':"-.",'o':"---",'p':".--.",'q':"--.-",'r':".-.",'s':"...",'t':"-",'u':"..-",'v':"...-",'w':".--",'x':"-..-",'y':"-.--",'z':"--.."}
+        t = ''
+        items = []
+        for word in words:
+            for s in word:
+                t =  t + morse_code[s]
+            items.append(t)
+            t = ''
+        
+        unique_list = []
+        for item in items:
+            if item not in unique_list:
+                unique_list.append(item)
+        return len(unique_list)
+
+#Flipping an Image
+class Solution:
+    def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        
+        for lst in A:
+            lst.reverse()
+          
+        tup = []
+        lst = []
+        for item in A:
+            for itm in item:
+                if itm == 0:
+                    lst.append(1)
+                else:
+                    lst.append(0)
+            tup.append(lst)
+            lst = []
+        
+        return tup                
