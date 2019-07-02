@@ -76,4 +76,39 @@ class Solution:
             tup.append(lst)
             lst = []
         
-        return tup                
+        return tup  
+
+#Sort Array By Parity
+class Solution:
+    def sortArrayByParity(self, A: List[int]) -> List[int]:
+        parity = []
+        odd = []
+        for item in A:
+            if item % 2 == 0:
+                parity.append(item)
+            else:
+                odd.append(item)
+                
+        parity.extend(odd)
+        
+        return parity
+                
+#N-Repeated Element in Size 2N Array
+class Solution:
+    def repeatedNTimes(self, A: List[int]) -> int:
+        temp = []
+        for items in A:
+            if items not in temp:
+                temp.append(items)
+            else:
+                return items
+                
+#Squares of a Sorted Array
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        
+        for i in range(0,len(A)):
+            A[i] = A[i]*A[i]
+        
+        A.sort()
+        return A
