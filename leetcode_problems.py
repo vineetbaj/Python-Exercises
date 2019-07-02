@@ -134,3 +134,18 @@ class Solution:
         else:
             return False
 
+#Self Dividing Numbers
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        num = []
+        for i in range(left,right+1):
+            j = str(i)
+            flag=True
+            for digit in j:
+                if digit == '0' or i % int(digit) != 0:
+                    flag = False
+                    break
+                
+            if(flag):
+                num.append(i)
+        return num
