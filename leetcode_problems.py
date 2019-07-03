@@ -178,3 +178,24 @@ class Solution:
             if id not in test:
                 test.append(id)       
         return len(test)
+
+#DI String Match        
+class Solution:
+    def diStringMatch(self, S: str) -> List[int]:
+        dec = len(S)
+        inc = 0
+        pnc = []
+        for a in range(0,len(S)):
+            if S[a]=="I":
+                pnc.append(inc)
+                inc+=1
+            elif S[a]=="D":
+                pnc.append(dec)
+                dec-=1
+        
+        for i in range(0,len(S)+1):
+            if i not in pnc:
+                pnc.append(i)
+                break
+                
+        return pnc
