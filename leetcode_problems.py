@@ -158,3 +158,23 @@ class Solution:
             if i=='1':
                 step+=1
         return step
+
+#Unique Email Addresses        
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        mails = []
+        temp = ''
+        domain = ''
+        for id in emails:
+            temp=(id[:id.find('@')])           
+            domain = id[id.find('@'):]
+            if temp.find('+') > 0:
+                temp = temp[:temp.find('+')]
+            temp = temp.replace(".","")
+            temp += domain
+            mails.append(temp)
+        test = []
+        for id in mails:
+            if id not in test:
+                test.append(id)       
+        return len(test)
