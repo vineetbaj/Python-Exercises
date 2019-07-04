@@ -206,3 +206,19 @@ class Solution:
         for i in range(1,len(A)):
             if A[i]>A[i-1] and A[i]>A[i+1]:
                 return i      
+                
+#Delete Columns to Make Sorted
+class Solution:
+    def minDeletionSize(self, A: List[str]) -> int:
+        count = 0
+        t = []
+        
+        for i in range(0,len(A[1])):
+            for j in range(0,len(A)):
+                t.append(A[j][i])
+            for k in range(0,len(t)-1):
+                if t[k]>t[k+1]:
+                    count+=1
+                    break;
+            t = []
+        return count                     
