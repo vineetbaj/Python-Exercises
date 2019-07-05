@@ -226,3 +226,13 @@ class Solution:
         
 #Optimized
 return sum(any(A[j][i] < A[j - 1][i] for j in range(1, len(A))) for i in range(len(A[0])))
+
+#Height Checker
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        c = 0
+        new_ip = sorted(heights)
+        for i in range(len(new_ip)):
+            if new_ip[i]!=heights[i]:
+                c+=1
+        return c
