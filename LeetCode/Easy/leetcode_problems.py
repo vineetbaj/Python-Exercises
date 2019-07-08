@@ -262,4 +262,13 @@ class Solution:
             A.append(odd[int(i/2)])
             
         return A
-        
+
+# Occurrences After Bigram
+class Solution:
+    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+        words = text.split()
+        res = []
+        for i in range(2,len(words)):
+            if words[i-2] == first and words[i-1] == second:
+                res.append(words[i])
+        return res
