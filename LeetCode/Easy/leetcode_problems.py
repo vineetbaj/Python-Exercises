@@ -245,3 +245,21 @@ class Solution:
         for i in range(0,len(nums),2):
                 sum += nums[i]
         return sum
+        
+#Sort Array By Parity II
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        odd = []
+        even = []
+        for i in A:
+            if i % 2 == 0:
+                even.append(i)
+            else:
+                odd.append(i)
+        A = []
+        for i in range(0,2*len(odd),2):
+            A.append(even[int(i/2)])
+            A.append(odd[int(i/2)])
+            
+        return A
+        
