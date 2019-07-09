@@ -282,3 +282,44 @@ class Solution:
         
         return fib[N]
         
+#Available Captures for Rook      
+class Solution:
+    def numRookCaptures(self, board: List[List[str]]) -> int:
+        step_i = 0
+        step_j = 0
+        count = 0
+        for i in range(0,len(board)):
+            for j in range(0,len(board[i])):
+                if board[i][j] == 'R':
+                    step_i = i
+                    step_j = j
+                    
+        for i in range(step_i,8):
+            if board[i][step_j] == 'p':
+                count+=1
+                break
+            elif board[i][step_j] == 'B':
+                break
+        
+        for i in range(step_i,0,-1):
+            if board[i][step_j] == 'p':
+                count+=1
+                break
+            elif board[i][step_j] == 'B':
+                break
+        
+        for j in range(step_j,8):
+            if board[step_i][j] == 'p':
+                count+=1
+                break
+            elif board[step_i][j] == 'B':
+                break
+                
+        for j in range(step_j,0,-1):
+            if board[step_i][j] == 'p':
+                count+=1
+                break
+            elif board[step_i][j] == 'B':
+                break
+
+        return count
