@@ -323,3 +323,20 @@ class Solution:
                 break
 
         return count
+        
+#Find Common Characters        
+class Solution:
+    def commonChars(self, A: List[str]) -> List[str]:
+        cnt = 0
+        char = []
+        tot = len(A)
+        for i in A[0]:
+            cnt = 0
+            for j in A[1:]:
+                if i in j:
+                    cnt += 1
+            if cnt == tot - 1:
+                char.append(i)
+                for k in range(0,len(A)):
+                    A[k] = A[k].replace(i,'',1)
+        return char
