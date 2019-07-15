@@ -340,3 +340,25 @@ class Solution:
                 for k in range(0,len(A)):
                     A[k] = A[k].replace(i,'',1)
         return char
+        
+#Defanging an IP Address
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        return address.replace('.','[.]')
+        
+#Relative Sort Array
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        arr = []
+        sec = []
+        for i in arr2:
+            for j in arr1:
+                if j==i:
+                    arr.append(j)
+
+        arr1 = sorted(arr1)
+        for j in arr1:
+            if j not in arr:
+                sec.append(j)
+        return arr+sec
+                    
