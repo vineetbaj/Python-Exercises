@@ -361,4 +361,16 @@ class Solution:
             if j not in arr:
                 sec.append(j)
         return arr+sec
-                    
+         
+#Smallest Range I
+class Solution:
+    def smallestRangeI(self, A: List[int], K: int) -> int:
+        min_val = min(A)
+        max_val = max(A)
+       
+        min_val += K
+        max_val -= K
+        
+        if min_val > max_val:
+            return 0
+        return max_val - min_val         
