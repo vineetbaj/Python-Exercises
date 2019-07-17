@@ -373,4 +373,29 @@ class Solution:
         
         if min_val > max_val:
             return 0
-        return max_val - min_val         
+        return max_val - min_val     
+
+#Reverse Words in a String III
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        words = s.split(' ')
+        res = ''
+        for i in words:
+            res += ' '+i[::-1]
+        return(res.lstrip())
+
+#Remove All Adjacent Duplicates In String
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        stack = []
+        for i in S:
+            if len(stack) == 0:
+                stack.append(i)
+            elif stack[len(stack)-1] == i:
+                stack.pop()
+            else:
+                stack.append(i)
+        res = ''
+        for i in stack:
+            res += i
+        return res        
