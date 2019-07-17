@@ -398,4 +398,25 @@ class Solution:
         res = ''
         for i in stack:
             res += i
-        return res        
+        return res      
+
+# Shortest Distance to a Character
+class Solution:
+    def shortestToChar(self, S: str, C: str) -> List[int]:
+        dis = []
+        test_c = []
+        temp = []
+        for i in range(0,len(S)):
+            if S[i]==C:
+                test_c.append(i)
+        
+        for i in range(0,len(S)):
+            if S[i] in test_c:
+                dis.append(0)
+            else:
+                min  = 10000
+                for j in range(0,len(test_c)):
+                    if abs(i-test_c[j])<min:
+                        min = abs(i-test_c[j])
+                dis.append(min)       
+        return dis        
