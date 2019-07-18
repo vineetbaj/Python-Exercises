@@ -419,4 +419,33 @@ class Solution:
                     if abs(i-test_c[j])<min:
                         min = abs(i-test_c[j])
                 dis.append(min)       
-        return dis        
+        return dis    
+
+#Subdomain Visit Count
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        temp = {}
+        for d in cpdomains:
+            cnt = 0
+            dom = ''
+            p = []
+
+            cnt = d.split()[0]
+            dom = d.split()[1]
+
+            if len(dom.split('.')) != 2:
+                temp[dom] = cnt
+            p = dom.split('.')
+            if p[len(p)-2]+'.'+p[len(p)-1] not in temp:
+                temp[p[len(p)-2]+'.'+p[len(p)-1]] = cnt
+            else:
+                temp[p[len(p)-2]+'.'+p[len(p)-1]] = int(temp[p[len(p)-2]+'.'+p[len(p)-1]]) +int(cnt)
+            if p[len(p)-1] not in temp:
+                temp[p[len(p)-1]] = cnt
+            else:
+                temp[p[len(p)-1]] = int(temp[p[len(p)-1]])+int(cnt)
+        
+        p = []
+        for i in temp:
+            p.append(str(temp[i])+' '+i)
+        return p            
