@@ -449,3 +449,15 @@ class Solution:
         for i in temp:
             p.append(str(temp[i])+' '+i)
         return p            
+        
+#Divisor Game
+class Solution:
+    def divisorGame(self, N: int) -> bool:
+        if (N-1) % 2 == 1:
+            return True
+        else:
+            return False
+#OR
+class Solution:
+    def divisorGame(self, N: int) -> bool:
+        return N%2==0
